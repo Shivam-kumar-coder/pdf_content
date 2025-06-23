@@ -8,9 +8,10 @@ def extract_text_from_pdf(pdf_file):
     text = ""
     for page in pdf_reader.pages:
         text += page.extract_text()
-        st.write(text)
+        return text
 st.title("ATS Resume Parser")
 
 uploaded_file = st.file_uploader("Upload a Resume PDF", type="pdf")
 if uploaded_file:
-    extract_text_from_pdf(uploaded_file)
+    text=extract_text_from_pdf(uploaded_file)
+    st.write(text)
